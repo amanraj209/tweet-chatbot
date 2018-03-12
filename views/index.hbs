@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Tweet-Chatbot</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+</head>
+<body>
+
+    <div class="container">
+        <h1 class="text-center">Tweet-Chatbot</h1>
+    </div>
+
+    <div class="container">
+        <form id="tweetForm" class="input-group my-3 col-sm-12 col-md-8 offset-md-2" method="post" action="/">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="basic-addon1">@</span>
+            </div>
+            <input type="text" id="handle" name="handle" class="form-control" placeholder="Twitter handle" aria-label="Twitter handle" aria-describedby="basic-addon1">
+            <div class="input-group-append">
+                <button id="submitBtn" class="btn btn-primary" type="button" onclick="submitForm()">Submit</button>
+            </div>
+        </form>
+    </div>
+
+    <div class="container col-sm-12 col-md-8 offset-md-2">
+        <table class="table">
+            <tbody>
+                <tr>
+                    <th class="table-dark">Followers</th>
+                    <td>{{ followers }}</td>
+                </tr>
+                <tr>
+                    <th class="table-dark">Tweets</th>
+                    <td>{{ tweets }}</td>
+                </tr>
+                <tr>
+                    <th class="table-dark">Latest Tweet</th>
+                    <td>{{ latestTweet }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+        function submitForm() {
+            const form = document.getElementById("tweetForm");
+            if ($("#handle").val() === '') {
+                return false;
+            }
+            form.submit();
+            form.reset();
+            return false;
+        }
+    </script>
+</body>
+</html>
